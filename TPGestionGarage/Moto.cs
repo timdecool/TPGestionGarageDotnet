@@ -2,6 +2,7 @@
 
 namespace TPGestionGarage;
 
+[Serializable]
 public class Moto : Vehicule
 {
     private int cylindree;
@@ -19,7 +20,9 @@ public class Moto : Vehicule
 
     public override void Afficher()
     {
-        
+        TerminalUI.EncadrerTexte($"MOTO : {Marque} {Nom.ToUpper()}");
+        TerminalUI.EncadrerTexte($"Nombre de cylindrées : {cylindree}");
+        base.Afficher();
     }
 
 }

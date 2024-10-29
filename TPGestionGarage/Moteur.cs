@@ -1,5 +1,6 @@
 ﻿namespace TPGestionGarage;
 
+[Serializable]
 public class Moteur
 {
     private static int _i;
@@ -23,7 +24,7 @@ public class Moteur
 
     public void Afficher()
     {
-        Console.WriteLine("Afficher");
+        TerminalUI.EncadrerTexte($"Moteur: {nom}, puissance: {puissance}, type: {typeMoteur}");
     }
 
 }

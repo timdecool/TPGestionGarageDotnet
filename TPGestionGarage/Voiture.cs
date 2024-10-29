@@ -1,5 +1,6 @@
 ﻿namespace TPGestionGarage;
 
+[Serializable]
 public class Voiture : Vehicule
 {
     private int chevauxFiscaux;
@@ -28,6 +29,11 @@ public class Voiture : Vehicule
 
     public override void Afficher()
     {
-        
+        TerminalUI.EncadrerTexte($"VOITURE : {Marque} {Nom.ToUpper()}");
+        TerminalUI.EncadrerTexte($"Nombre de chevaux fiscaux : {chevauxFiscaux}");
+        TerminalUI.EncadrerTexte($"Nombre de portes : {nbPorte}");
+        TerminalUI.EncadrerTexte($"Nombre de sièges: {nbSiege}");
+        TerminalUI.EncadrerTexte($"Taille du coffre : {tailleCoffre} m3");
+        base.Afficher();
     }
 }

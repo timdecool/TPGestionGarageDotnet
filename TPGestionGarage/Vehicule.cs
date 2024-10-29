@@ -1,6 +1,7 @@
 ﻿namespace TPGestionGarage;
 
-public abstract class Vehicule
+[Serializable]
+public abstract class Vehicule : IComparable<Vehicule>
 {
     
     #region attributes
@@ -33,25 +34,30 @@ public abstract class Vehicule
     }
     #endregion
     
-    
     #region method
 
     public void AfficherOptions()
     {
-        
+        foreach (Option option in Options)
+        {
+            option.Afficher();
+            TerminalUI.AfficherSeparateur();
+        }
     }
 
     public virtual void Afficher()
     {
-        Console.WriteLine($"{marque} {nom.ToUpper()}");
-        Console.WriteLine("=================");
         moteur.Afficher();
-        Console.WriteLine("Options : ");
-        foreach (Option option in options)
+        if (options.Count > 0)
         {
-            option.Afficher();
+            TerminalUI.EncadrerTexte("Options : ");
+            AfficherOptions();
         }
-        Console.WriteLine($"Prix : {prixHt:C} H.T - {PrixTotal():C} T.T.C");
+        else
+        {
+            TerminalUI.EncadrerTexte("Pas d'options sélectionnées.");
+        }
+        TerminalUI.EncadrerTexte($"Prix : {prixHt:C} H.T - {PrixTotal():C} T.T.C");
     }
 
     public void AjouterOption(Option option)
@@ -62,12 +68,14 @@ public abstract class Vehicule
 
     public decimal PrixTotal()
     {
-        return prixHt + CalculerTaxe();
+        return prixHt + CalculerTaxe() + options.Sum(option => option.Prix);
     }
-
+    
+    public int CompareTo(Vehicule? other)
+    {
+        if (other == null) return 1;
+        return this.PrixTotal().CompareTo(other.PrixTotal());
+    }
     #endregion
-
-
-
-
+    
 }

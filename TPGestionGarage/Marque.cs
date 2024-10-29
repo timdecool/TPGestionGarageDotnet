@@ -2,9 +2,9 @@
 
 public enum Marque
 {
-    Peugeot,
-    Renault,
-    Citroen,
-    Audi,
-    Ferrari
+    PEUGEOT,
+    RENAULT,
+    CITROEN,
+    AUDI,
+    FERRARI
 }

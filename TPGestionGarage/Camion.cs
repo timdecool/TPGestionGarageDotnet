@@ -1,5 +1,6 @@
 ﻿namespace TPGestionGarage;
 
+[Serializable]
 public class Camion : Vehicule
 {
     private int nbEssieu;
@@ -25,7 +26,11 @@ public class Camion : Vehicule
 
     public override void Afficher()
     {
-        
+        TerminalUI.EncadrerTexte($"CAMION : {Marque} {Nom.ToUpper()}");
+        TerminalUI.EncadrerTexte($"Nombre d'essieux : {nbEssieu}");
+        TerminalUI.EncadrerTexte($"Poids : {poids:2} kg");
+        TerminalUI.EncadrerTexte($"Volume : {volume:2} m3");
+        base.Afficher();
     }
     
 

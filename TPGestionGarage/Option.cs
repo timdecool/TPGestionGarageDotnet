@@ -1,5 +1,6 @@
 ﻿namespace TPGestionGarage;
 
+[Serializable]
 public class Option
 {
     private static int _i;
@@ -20,6 +21,6 @@ public class Option
 
     public void Afficher()
     {
-        Console.WriteLine($"Id: {id}, Nom: {nom}, Prix: {prix}");
+        TerminalUI.EncadrerTexte($"Id: {id}, Nom: {nom}, Prix: {prix}");
     }
 }

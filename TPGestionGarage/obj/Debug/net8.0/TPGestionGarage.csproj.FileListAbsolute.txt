@@ -1,0 +1,15 @@
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\bin\Debug\net8.0\TPGestionGarage.exe
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\bin\Debug\net8.0\TPGestionGarage.deps.json
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\bin\Debug\net8.0\TPGestionGarage.runtimeconfig.json
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\bin\Debug\net8.0\TPGestionGarage.dll
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\bin\Debug\net8.0\TPGestionGarage.pdb
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.AssemblyInfoInputs.cache
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.AssemblyInfo.cs
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.csproj.CoreCompileInputs.cache
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.sourcelink.json
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.dll
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\refint\TPGestionGarage.dll
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.pdb
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\TPGestionGarage.genruntimeconfig.cache
+C:\Users\timde\Documents\ipi\dotnet\TpGestionGarage\TPGestionGarage\TPGestionGarage\obj\Debug\net8.0\ref\TPGestionGarage.dll
