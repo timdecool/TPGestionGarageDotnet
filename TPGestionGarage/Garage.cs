@@ -44,11 +44,8 @@ public class Garage
     {
         TerminalUI.EncadrerTexte($"{this.nom.ToUpper()} - {vehicules.Count} véhicules :");
         TerminalUI.EncadrerTexte("");
-        int i = 0;
         foreach (Vehicule vehicule in vehicules)
         {
-            TerminalUI.EncadrerTexte($"N°{++i}");
-            TerminalUI.AfficherSeparateur();
             vehicule.Afficher();
             TerminalUI.AfficherSeparateur();
         }
@@ -98,10 +95,8 @@ public class Garage
 
     public void AfficherMoteur()
     {
-        int i = 0;
         foreach (Moteur moteur in moteurs)
         {
-            TerminalUI.EncadrerTexte($"{++i}.");
             moteur.Afficher();
         }
     }
@@ -113,10 +108,8 @@ public class Garage
 
     public void AfficherOption()
     {
-        int i = 0;
         foreach (Option option in options)
         {
-            TerminalUI.EncadrerTexte($"{++i}.");
             option.Afficher();
         }
     }

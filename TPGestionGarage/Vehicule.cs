@@ -42,6 +42,7 @@ public abstract class Vehicule : IComparable<Vehicule>
         this.prixHt = prixHt;
         this.moteur = moteur;
         this.marque = marque;
+        id = ++_i;
     }
     #endregion
     
@@ -49,10 +50,16 @@ public abstract class Vehicule : IComparable<Vehicule>
 
     public void AfficherOptions()
     {
-        foreach (Option option in Options)
+        if (Options.Count > 0)
         {
-            option.Afficher();
-            TerminalUI.AfficherSeparateur();
+            foreach (Option option in Options)
+            {
+                option.Afficher();
+            }
+        }
+        else
+        {
+            TerminalUI.EncadrerTexte("Aucune option associée à ce véhicule");
         }
     }
 
@@ -68,12 +75,17 @@ public abstract class Vehicule : IComparable<Vehicule>
         {
             TerminalUI.EncadrerTexte("Pas d'options sélectionnées.");
         }
-        TerminalUI.EncadrerTexte($"Prix : {prixHt:C} H.T - {PrixTotal():C} T.T.C");
+        TerminalUI.EncadrerTexte($"Prix : {prixHt:C} H.T - {PrixTotal():C} T.T.C + options");
     }
 
     public void AjouterOption(Option option)
     {
         options.Add(option);
+    }
+
+    public void SupprimerOption(Option option)
+    {
+        options.Remove(option);
     }
     public abstract decimal CalculerTaxe();
 

@@ -25,7 +25,7 @@ public class Moto : Vehicule
 
     public override void Afficher()
     {
-        TerminalUI.EncadrerTexte($"MOTO : {Marque} {Nom.ToUpper()}");
+        TerminalUI.EncadrerTexte($"ID N°{Id} - MOTO : {Marque} {Nom.ToUpper()}");
         TerminalUI.EncadrerTexte($"Nombre de cylindrées : {cylindree}");
         base.Afficher();
     }

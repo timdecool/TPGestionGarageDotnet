@@ -34,7 +34,7 @@ public class Voiture : Vehicule
 
     public override void Afficher()
     {
-        TerminalUI.EncadrerTexte($"VOITURE : {Marque} {Nom.ToUpper()}");
+        TerminalUI.EncadrerTexte($"ID N°{Id} - VOITURE : {Marque} {Nom.ToUpper()}");
         TerminalUI.EncadrerTexte($"Nombre de chevaux fiscaux : {chevauxFiscaux}");
         TerminalUI.EncadrerTexte($"Nombre de portes : {nbPorte}");
         TerminalUI.EncadrerTexte($"Nombre de sièges: {nbSiege}");

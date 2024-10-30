@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TPGestionGarage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f5951258397729570d17c114c9e8cda9b501548")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19d4ffc6bef8f05b5d38f0c3b2bec8bf5bc6056e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TPGestionGarage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TPGestionGarage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

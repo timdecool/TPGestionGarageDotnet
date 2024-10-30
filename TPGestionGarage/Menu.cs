@@ -108,10 +108,10 @@ public class Menu
     public void AjouterVehicule()
     {
         TerminalUI.AfficherTitre("Ajouter un véhicule");
-        // Type de véhicule ?
         TerminalUI.EncadrerTexte("Choisissez un type de véhicule : Voiture (1), Moto (2) ou Camion (3)");
 
         int choixTypeVehicule = 0;
+        bool success = true;
         try
         {
             choixTypeVehicule = GetChoixMenu(3);
@@ -119,20 +119,25 @@ public class Menu
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
+            success = false;
+            Console.ReadKey();
         }
-        
-        Vehicule nouveauVehicule;
-        switch (choixTypeVehicule)
+
+        if (success)
         {
-            case 1:
-                nouveauVehicule = new Voiture();
-                break;
-            case 2:
-                nouveauVehicule = new Moto();
-                break;
-            case 3:
-                nouveauVehicule = new Camion();
-                break;
+            Vehicule nouveauVehicule = null;
+            switch (choixTypeVehicule)
+            {
+                case 1:
+                    nouveauVehicule = new Voiture();
+                    break;
+                case 2:
+                    nouveauVehicule = new Moto();
+                    break;
+                case 3:
+                    nouveauVehicule = new Camion();
+                    break;
+            }
         }
         
         // PersonnaliserVehicule(nouveauVehicule);
@@ -166,11 +171,11 @@ public class Menu
     {
         TerminalUI.AfficherTitre("Supprimer un véhicule");
         garage.Afficher();
-        TerminalUI.AfficherPied("Indiquez le numéro du véhicule à supprimer : ", false);
-        int choix = -1;
+        TerminalUI.AfficherPied("Indiquez le numéro d'ID du véhicule à supprimer : ", false);
+        Vehicule? vehicule = null;
         try
         {
-            choix = GetChoixMenu(garage.Vehicules.Count) - 1;
+            vehicule = GetChoixVehicule();
         }
         catch(Exception e)
         {
@@ -178,9 +183,9 @@ public class Menu
             Console.ReadKey();
         }
 
-        if (choix > -1)
+        if (vehicule != null)
         {
-            garage.SupprimerVehicule(garage.Vehicules[choix]);
+            garage.SupprimerVehicule(vehicule);
         }
     }
 
@@ -188,21 +193,21 @@ public class Menu
     {
         TerminalUI.AfficherTitre("Sélectionner un véhicule");
         garage.Afficher();
-        TerminalUI.AfficherPied("Indiquez le numéro du véhicule à sélectionner : ", false);
-        int choix = -1;
+        TerminalUI.AfficherPied("Indiquez le numéro d'ID du véhicule à sélectionner : ", false);
+        Vehicule? vehicule = null;
         try
         {
-            choix = GetChoixMenu(garage.Vehicules.Count) - 1;
+            vehicule = GetChoixVehicule();
         }
         catch(Exception e)
         {
             Console.WriteLine(e.Message);
             Console.ReadKey();
         }
-
-        if (choix > -1)
+        
+        if (vehicule != null)
         {
-            garage.VehiculeSelectionne = garage.Vehicules[choix];
+            garage.VehiculeSelectionne = vehicule;
         }
 
     }
@@ -234,7 +239,23 @@ public class Menu
         if (garage.VehiculeSelectionne != null)
         {
             AfficherVehiculeSelectionne();
-            
+            garage.AfficherOption();
+            TerminalUI.AfficherPied("Entrez le numéro d'ID de l'option à ajouter.", false);
+            Option? option = null;
+            try
+            {
+                option = GetChoixOption();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
+
+            if (option != null)
+            {
+                garage.VehiculeSelectionne.AjouterOption(option);
+            }
         }
         else
         {
@@ -250,6 +271,23 @@ public class Menu
         if (garage.VehiculeSelectionne != null)
         {
             AfficherVehiculeSelectionne();
+            garage.VehiculeSelectionne.AfficherOptions();
+            TerminalUI.AfficherPied("Entrez le numéro d'ID de l'option à supprimer.", false);
+            Option? option = null;
+            try
+            {
+                option = GetChoixOption();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
+
+            if (option != null)
+            {
+                garage.VehiculeSelectionne.SupprimerOption(option);
+            }
         }
         else
         {
@@ -323,12 +361,45 @@ public class Menu
         {
             return choix;
         }
-        else
-        {
-            throw new MenuException(max);
-        }
+        throw new MenuException(max);
     }
     
+    public Vehicule? GetChoixVehicule()
+    {
+        int choix = GetChoix();
+        Vehicule? vehicule = garage.Vehicules.Find(vehicule => vehicule.Id == choix);
+
+        if (vehicule == null)
+        {
+            throw new IdInconnuException("'Véhicule'");
+        }
+        return vehicule;
+    }
+
+    public Option? GetChoixOption()
+    {
+        int choix = GetChoix();
+        Option? option = garage.Options.Find(option => option.Id == choix);
+
+        if (option == null)
+        {
+            throw new IdInconnuException("'Option'");
+        }
+        return option;
+    }
+
+    public Moteur? GetChoixMoteur()
+    {
+        int choix = GetChoix();
+        Moteur? moteur = garage.Moteurs.Find(moteur => moteur.Id == choix);
+
+        if (moteur == null)
+        {
+            throw new IdInconnuException("'Moteur'");
+        }
+
+        return moteur;
+    }
 }
 
 class MenuException : Exception
@@ -340,5 +411,16 @@ class MenuException : Exception
     public MenuException(int max) : base($"Le choix n'est pas compris entre 1 et {max}.")
     {
         
+    }
+}
+
+class IdInconnuException : Exception
+{
+    public IdInconnuException() : base("Aucun élément ne correspond à l'ID proposé")
+    {
+    }
+
+    public IdInconnuException(String classe) : base($"Aucun objet {classe} ne correspond à l'ID proposé.")
+    {
     }
 }

@@ -1,5 +1,5 @@
 {
-  "Nom": "Le Garage de Julie",
+  "Nom": "MEGA TURBO",
   "Vehicules": [
     {
       "$type": "camion",
@@ -11,7 +11,7 @@
       "PrixHt": 21000,
       "Options": [],
       "Moteur": {
-        "Id": 1,
+        "Id": 6,
         "Nom": "D5Awd",
         "Puissance": 158,
         "TypeMoteur": 0
@@ -29,7 +29,7 @@
       "PrixHt": 14300,
       "Options": [],
       "Moteur": {
-        "Id": 2,
+        "Id": 7,
         "Nom": "D4Awd",
         "Puissance": 133,
         "TypeMoteur": 0
@@ -42,9 +42,15 @@
       "Id": 0,
       "Nom": "Supersport 10R",
       "PrixHt": 16500,
-      "Options": [],
+      "Options": [
+        {
+          "Id": 2,
+          "Nom": "Vitres Teint\u00E9es",
+          "Prix": 800
+        }
+      ],
       "Moteur": {
-        "Id": 1,
+        "Id": 8,
         "Nom": "D5Awd",
         "Puissance": 158,
         "TypeMoteur": 0
@@ -52,27 +58,58 @@
       "Marque": 3
     }
   ],
-  "Moteurs": [],
+  "Moteurs": [
+    {
+      "Id": 9,
+      "Nom": "D5Awd",
+      "Puissance": 158,
+      "TypeMoteur": 0
+    },
+    {
+      "Id": 10,
+      "Nom": "D4Awd",
+      "Puissance": 133,
+      "TypeMoteur": 0
+    },
+    {
+      "Id": 11,
+      "Nom": "BigVroom",
+      "Puissance": 200,
+      "TypeMoteur": 1
+    },
+    {
+      "Id": 12,
+      "Nom": "BioDrive",
+      "Puissance": 140,
+      "TypeMoteur": 3
+    },
+    {
+      "Id": 13,
+      "Nom": "HybridOx",
+      "Puissance": 150,
+      "TypeMoteur": 2
+    }
+  ],
   "Options": [
     {
       "Id": 1,
-      "Nom": "GPS",
-      "Prix": 500
+      "Nom": "Parking automatique",
+      "Prix": 930
     },
     {
       "Id": 2,
-      "Nom": "Toit Ouvrant",
-      "Prix": 1200
+      "Nom": "Vitres Teint\u00E9es",
+      "Prix": 800
     },
     {
       "Id": 3,
-      "Nom": "Climatisation",
+      "Nom": "Cam\u00E9ra de recul",
       "Prix": 800
     },
     {
       "Id": 4,
-      "Nom": "Syst\u00E8me Audio Bose",
-      "Prix": 900
+      "Nom": "Bass Boost Audio",
+      "Prix": 450
     },
     {
       "Id": 5,
@@ -81,19 +118,39 @@
     },
     {
       "Id": 6,
-      "Nom": "Peinture M\u00E9tallis\u00E9e",
-      "Prix": 700
+      "Nom": "Fermeture Centralis\u00E9e",
+      "Prix": 300
     },
     {
       "Id": 7,
-      "Nom": "Cam\u00E9ra de Recul",
-      "Prix": 400
+      "Nom": "Direction Assist\u00E9e",
+      "Prix": 1210
     },
     {
       "Id": 8,
-      "Nom": "Volant Cuir",
-      "Prix": 300
+      "Nom": "R\u00E9gulateur de Vitesse",
+      "Prix": 370
     }
   ],
-  "VehiculeSelectionne": null
+  "VehiculeSelectionne": {
+    "$type": "moto",
+    "Cylindree": 4,
+    "Id": 0,
+    "Nom": "Supersport 10R",
+    "PrixHt": 16500,
+    "Options": [
+      {
+        "Id": 2,
+        "Nom": "Vitres Teint\u00E9es",
+        "Prix": 800
+      }
+    ],
+    "Moteur": {
+      "Id": 14,
+      "Nom": "D5Awd",
+      "Puissance": 158,
+      "TypeMoteur": 0
+    },
+    "Marque": 3
+  }
 }

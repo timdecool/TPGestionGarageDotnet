@@ -24,7 +24,7 @@ public class Moteur
 
     public void Afficher()
     {
-        TerminalUI.EncadrerTexte($"Moteur: {nom}, puissance: {puissance}, type: {typeMoteur}");
+        TerminalUI.EncadrerTexte($"ID N°{Id} - Moteur: {nom}, puissance: {puissance}, type: {typeMoteur}");
     }
 
 }
