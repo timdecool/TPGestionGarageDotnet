@@ -1,1 +1,99 @@
-{"Nom":"Le Garage de Julie","Vehicules":[{"Id":0,"Nom":"Type H","PrixHt":21000,"Options":[],"Moteur":{"Id":1,"Nom":"D5Awd","Puissance":158,"TypeMoteur":0},"Marque":2},{"Id":0,"Nom":"Kangoo","PrixHt":14300,"Options":[],"Moteur":{"Id":2,"Nom":"D4Awd","Puissance":133,"TypeMoteur":0},"Marque":1},{"Id":0,"Nom":"Supersport 10R","PrixHt":16500,"Options":[],"Moteur":{"Id":1,"Nom":"D5Awd","Puissance":158,"TypeMoteur":0},"Marque":3}],"Moteurs":[],"Options":[],"VehiculeSelectionne":null}
+{
+  "Nom": "Le Garage de Julie",
+  "Vehicules": [
+    {
+      "$type": "camion",
+      "NbEssieu": 10,
+      "Poids": 1500,
+      "Volume": 15,
+      "Id": 0,
+      "Nom": "Type H",
+      "PrixHt": 21000,
+      "Options": [],
+      "Moteur": {
+        "Id": 1,
+        "Nom": "D5Awd",
+        "Puissance": 158,
+        "TypeMoteur": 0
+      },
+      "Marque": 2
+    },
+    {
+      "$type": "voiture",
+      "ChevauxFiscaux": 5,
+      "NbPorte": 5,
+      "NbSiege": 5,
+      "TailleCoffre": 1,
+      "Id": 0,
+      "Nom": "Kangoo",
+      "PrixHt": 14300,
+      "Options": [],
+      "Moteur": {
+        "Id": 2,
+        "Nom": "D4Awd",
+        "Puissance": 133,
+        "TypeMoteur": 0
+      },
+      "Marque": 1
+    },
+    {
+      "$type": "moto",
+      "Cylindree": 4,
+      "Id": 0,
+      "Nom": "Supersport 10R",
+      "PrixHt": 16500,
+      "Options": [],
+      "Moteur": {
+        "Id": 1,
+        "Nom": "D5Awd",
+        "Puissance": 158,
+        "TypeMoteur": 0
+      },
+      "Marque": 3
+    }
+  ],
+  "Moteurs": [],
+  "Options": [
+    {
+      "Id": 1,
+      "Nom": "GPS",
+      "Prix": 500
+    },
+    {
+      "Id": 2,
+      "Nom": "Toit Ouvrant",
+      "Prix": 1200
+    },
+    {
+      "Id": 3,
+      "Nom": "Climatisation",
+      "Prix": 800
+    },
+    {
+      "Id": 4,
+      "Nom": "Syst\u00E8me Audio Bose",
+      "Prix": 900
+    },
+    {
+      "Id": 5,
+      "Nom": "Si\u00E8ges Chauffants",
+      "Prix": 600
+    },
+    {
+      "Id": 6,
+      "Nom": "Peinture M\u00E9tallis\u00E9e",
+      "Prix": 700
+    },
+    {
+      "Id": 7,
+      "Nom": "Cam\u00E9ra de Recul",
+      "Prix": 400
+    },
+    {
+      "Id": 8,
+      "Nom": "Volant Cuir",
+      "Prix": 300
+    }
+  ],
+  "VehiculeSelectionne": null
+}

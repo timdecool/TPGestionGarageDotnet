@@ -21,6 +21,6 @@ public class Option
 
     public void Afficher()
     {
-        TerminalUI.EncadrerTexte($"Id: {id}, Nom: {nom}, Prix: {prix}");
+        TerminalUI.EncadrerTexte($"Nom: {nom} - Prix: {prix:C}");
     }
 }

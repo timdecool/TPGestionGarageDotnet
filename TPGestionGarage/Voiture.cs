@@ -13,6 +13,11 @@ public class Voiture : Vehicule
     public int NbSiege { get => nbSiege; init => nbSiege = value; }
     public int TailleCoffre { get => tailleCoffre; set => tailleCoffre = value; }
 
+
+    public Voiture()
+    {
+        
+    }
     public Voiture(int chevauxFiscaux, int nbPorte, int nbSiege, int tailleCoffre, string nom, decimal prixHt,
         Moteur moteur, Marque marque) : base(nom, prixHt, moteur, marque)
     {

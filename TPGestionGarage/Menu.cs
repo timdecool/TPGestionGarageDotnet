@@ -15,12 +15,11 @@ public class Menu
             "7. Supprimer des options d'un véhicules",
             "8. Afficher les options disponibles",
             "9. Afficher les marques disponibles",
-            "10. Afficher les types de moteur disponibles",
+            "10. Afficher les moteurs disponibles",
             "11. Charger le garage",
             "12. Sauvegarder le garage",
             "13. Quitter l'application"]
     );
-    private List<String> log = new List<string>();
     
     public Menu(Garage garage)
     {
@@ -39,8 +38,8 @@ public class Menu
             {
                 TerminalUI.EncadrerTexte(option);
             }
-            if(garage.VehiculeSelectionne != null) TerminalUI.EncadrerTexte($"(Véhicule sélectionné : {garage.VehiculeSelectionne.Marque} {garage.VehiculeSelectionne.Nom.ToUpper()})");
             
+            AfficherVehiculeSelectionne();
             TerminalUI.AfficherPied("Veuillez choisir une action du menu en entrant son numéro.", false);
             int userOption = 0;
             try
@@ -109,7 +108,57 @@ public class Menu
     public void AjouterVehicule()
     {
         TerminalUI.AfficherTitre("Ajouter un véhicule");
+        // Type de véhicule ?
+        TerminalUI.EncadrerTexte("Choisissez un type de véhicule : Voiture (1), Moto (2) ou Camion (3)");
 
+        int choixTypeVehicule = 0;
+        try
+        {
+            choixTypeVehicule = GetChoixMenu(3);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
+        Vehicule nouveauVehicule;
+        switch (choixTypeVehicule)
+        {
+            case 1:
+                nouveauVehicule = new Voiture();
+                break;
+            case 2:
+                nouveauVehicule = new Moto();
+                break;
+            case 3:
+                nouveauVehicule = new Camion();
+                break;
+        }
+        
+        // PersonnaliserVehicule(nouveauVehicule);
+        // En fonction du type, différentes infos nécessaires
+
+        // Nom du véhicule
+
+        // Choisir marque dans la liste
+
+        // Entrer prix hors taxe
+
+    }
+
+    public void PersonnaliserVehicule(Moto moto)
+    {
+        TerminalUI.EncadrerTexte("Indiquez le nombre de cylindrées : ");
+        
+    }
+
+    public void PersonnaliserVehicule(Voiture voiture)
+    {
+        
+    }
+
+    public void PersonnaliserVehicule(Camion camion)
+    {
         
     }
 
@@ -158,11 +207,17 @@ public class Menu
 
     }
 
+    public void AfficherVehiculeSelectionne()
+    {
+        if(garage.VehiculeSelectionne != null) TerminalUI.EncadrerTexte($"(Véhicule sélectionné : {garage.VehiculeSelectionne.Marque} {garage.VehiculeSelectionne.Nom.ToUpper()})");
+    }
+
     public void AfficherOptionsVehicule()
     {
         TerminalUI.AfficherTitre("Options du véhicule");
         if (garage.VehiculeSelectionne != null)
         {
+            AfficherVehiculeSelectionne();
             garage.VehiculeSelectionne.AfficherOptions();
             TerminalUI.AfficherPied();
         }
@@ -176,6 +231,15 @@ public class Menu
     public void AjouterOptionsVehicule()
     {
         TerminalUI.AfficherTitre("Nouvelle option du véhicule");
+        if (garage.VehiculeSelectionne != null)
+        {
+            AfficherVehiculeSelectionne();
+            
+        }
+        else
+        {
+            TerminalUI.AfficherPied("Veuillez sélectionner un véhicule.");
+        }
 
         
     }
@@ -183,8 +247,14 @@ public class Menu
     public void SupprimerOptionsVehicule()
     {
         TerminalUI.AfficherTitre("Supprimer une option du véhicule");
-
-        
+        if (garage.VehiculeSelectionne != null)
+        {
+            AfficherVehiculeSelectionne();
+        }
+        else
+        {
+            TerminalUI.AfficherPied("Veuillez sélectionner un véhicule.");
+        }
     }
 
     public void AfficherOptions()
@@ -211,16 +281,21 @@ public class Menu
 
     public void ChargerGarage()
     {
-        
+        TerminalUI.AfficherTitre("Charger garage");
+        string jsonString = File.ReadAllText("garage.json");
+        Garage garage = JsonSerializer.Deserialize<Garage>(jsonString);
+        this.garage = garage;
+        TerminalUI.EncadrerTexte("Garage chargé.");
+        TerminalUI.AfficherPied();
     }
 
     public void SauvegarderGarage()
     {
         TerminalUI.AfficherTitre("Sauvegarder");
-        string jsonString = JsonSerializer.Serialize(garage);
-        TerminalUI.EncadrerTexte(jsonString);
+        TerminalUI.EncadrerTexte(Directory.GetCurrentDirectory());
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string jsonString = JsonSerializer.Serialize(garage, options);
         File.WriteAllTextAsync("garage.json", jsonString);
-        log.Add("Garage sauvegardé.");
         TerminalUI.AfficherPied();
         
     }
@@ -235,7 +310,7 @@ public class Menu
         }
         catch(FormatException e)
         {
-            throw new FormatException(e.Message);
+            throw new FormatException("Le choix saisi n'est pas un nombre.");
         }
 
         return res;

@@ -1,6 +1,12 @@
-﻿namespace TPGestionGarage;
+﻿using System.Text.Json.Serialization;
+
+namespace TPGestionGarage;
 
 [Serializable]
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+[JsonDerivedType(typeof(Voiture), "voiture")]
+[JsonDerivedType(typeof(Moto), "moto")]
+[JsonDerivedType(typeof(Camion), "camion")]
 public abstract class Vehicule : IComparable<Vehicule>
 {
     
@@ -15,15 +21,20 @@ public abstract class Vehicule : IComparable<Vehicule>
     #endregion
     
     #region properties
-    public int Id { get => id; }
+    public int Id { get => id; init => id = value; }
     public string Nom { get => nom; init => nom = value; }
     public decimal PrixHt { get => prixHt; init => prixHt = value; }
-    public List<Option> Options { get => options; }
+    public List<Option> Options { get => options; init => options = value; }
     public Moteur Moteur { get => moteur; init => moteur = value; }
     public Marque Marque { get => marque; init => marque = value; }
     #endregion
     
     #region constructors
+
+    public Vehicule()
+    {
+        
+    }
     public Vehicule(string nom, decimal prixHt, Moteur moteur, Marque marque)
     {
         options = new List<Option>();

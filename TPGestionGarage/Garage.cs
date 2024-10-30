@@ -98,8 +98,10 @@ public class Garage
 
     public void AfficherMoteur()
     {
+        int i = 0;
         foreach (Moteur moteur in moteurs)
         {
+            TerminalUI.EncadrerTexte($"{++i}.");
             moteur.Afficher();
         }
     }
@@ -111,8 +113,10 @@ public class Garage
 
     public void AfficherOption()
     {
+        int i = 0;
         foreach (Option option in options)
         {
+            TerminalUI.EncadrerTexte($"{++i}.");
             option.Afficher();
         }
     }

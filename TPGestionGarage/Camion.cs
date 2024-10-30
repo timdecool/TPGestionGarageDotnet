@@ -11,6 +11,10 @@ public class Camion : Vehicule
     public int Poids { get => poids; init => poids = value; }
     public int Volume { get => volume; init => volume = value; }
 
+    public Camion()
+    {
+        
+    }
     public Camion(int nbEssieu, int poids, int volume, string nom, decimal prixHt, Moteur moteur, Marque marque) : base(
         nom, prixHt, moteur, marque)
     {
